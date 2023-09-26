@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class StageManager : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class StageManager : MonoBehaviour
 
         if (statusStage2 == 1)
             buttonStage2.interactable = true;
+            
         else
             buttonStage2.interactable = false;
 
