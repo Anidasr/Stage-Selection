@@ -6,10 +6,18 @@ public class NextStage : MonoBehaviour
 {
     public ScriptScene scriptScene;
 
-    public void nextStage (string key)
+    public void nextStage(string key)
     {
-        //Next Stage Unlocked
-        PlayerPrefs.SetInt(key, 1);
+        // Periksa apakah stage sudah terbuka sebelumnya
+        int status = PlayerPrefs.GetInt(key, 0); // Default value 0 jika "key" belum ada
+
+        if (status != 1)
+        {
+            // Jika belum terbuka, maka set sebagai terbuka
+            PlayerPrefs.SetInt(key, 1);
+            PlayerPrefs.Save(); // Simpan perubahan ke PlayerPrefs
+        }
+
         scriptScene.PindahScene("StageSelection");
     }
 }
